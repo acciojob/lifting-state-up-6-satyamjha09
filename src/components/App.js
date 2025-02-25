@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import TodoList from "./TodoList.js"
-
 const App = () => {
   const [todos, setTodos] = useState([
     { id: 1, text: "Learn React", completed: false },
