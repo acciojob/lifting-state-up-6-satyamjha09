@@ -4,10 +4,12 @@ const TodoList = ({ todos, onComplete }) => {
   return (
     <ul>
       {todos.map((todo) => (
-        <li key={todo.id}>
+        <li key={todo.id} data-cy={`todo-item-${todo.id}`}>
           {todo.text} {todo.completed ? "✅ Done" : ""}
           {!todo.completed && (
-            <button onClick={() => onComplete(todo.id)}>Complete</button>
+            <button data-cy={`complete-btn-${todo.id}`} onClick={() => onComplete(todo.id)}>
+              Complete
+            </button>
           )}
         </li>
       ))}
