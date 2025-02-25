@@ -5,7 +5,7 @@ const TodoList = ({ todos, onComplete }) => {
     <ul>
       {todos.map((todo) => (
         <li key={todo.id}>
-          {todo.text} {todo.completed ? "done" : ""}
+          {todo.text} {todo.completed ? "✅ Done" : ""}
           {!todo.completed && (
             <button onClick={() => onComplete(todo.id)}>Complete</button>
           )}
