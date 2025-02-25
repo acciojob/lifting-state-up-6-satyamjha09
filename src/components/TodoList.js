@@ -1,15 +1,13 @@
 import React from "react";
 
-const TodoList = ({ todos, onComplete }) => {
+const TodoList = ({ todos, handleComplete }) => {
   return (
     <ul>
       {todos.map((todo) => (
-        <li key={todo.id} data-cy={`todo-item-${todo.id}`}>
-          {todo.text} {todo.completed ? "✅ Done" : ""}
+        <li key={todo.id}>
+          {todo.text} {todo.completed ? "✅" : "❌"}
           {!todo.completed && (
-            <button data-cy={`complete-btn-${todo.id}`} onClick={() => onComplete(todo.id)}>
-              Complete
-            </button>
+            <button onClick={() => handleComplete(todo.id)}>Complete</button>
           )}
         </li>
       ))}
