@@ -1,33 +1,19 @@
 import React from "react";
 
-const TodoList = ({ todos, handleComplete }) => {
+function TodoList({ todos, handleComplete }) {
   return (
     <ul>
+      <h2>Child Component</h2>
       {todos.map((todo) => (
-        <li key={todo.id} style={{ marginBottom: "10px" }}>
-          <span
-            data-testid={`todo-text-${todo.id}`}
-            style={{ textDecoration: todo.completed ? "line-through" : "none" }}
-          >
-            {todo.text}
-          </span>
+        <li key={todo.id}>
+          {todo.text}
           {!todo.completed && (
-            <button
-              onClick={() => handleComplete(todo.id)}
-              data-testid={`complete-button-${todo.id}`} // Cypress can target this
-              style={{
-                marginLeft: "10px",
-                padding: "5px",
-                cursor: "pointer",
-              }}
-            >
-              Complete
-            </button>
+            <button onClick={() => handleComplete(todo.id)}>Complete</button>
           )}
         </li>
       ))}
     </ul>
   );
-};
+}
 
 export default TodoList;
